@@ -30,8 +30,8 @@ class VonMisesEnvelope():
     def calc_VME_API_curves(self, Yp, outer_diameter, inner_diameter, radius, eccentricity, temperature, Youngs_modulus, Poissons_raio):
         self.VME_pressure, self.VME_tension = wec.calc_VM_envelope(Yp, outer_diameter, inner_diameter, radius, eccentricity, temperature, self.DF_burst_triaxial, self.DF_tension_triaxial)
         self.API_collapse_pressure = wec.calc_API_collapse(Yp, outer_diameter, inner_diameter, Youngs_modulus, Poissons_raio) / self.DF_collapse
-        self.API_burst_pressure = wec.calc_API_burst(Yp, outer_diameter, inner_diameter) / self.DF_burst
-        self.API_tension = wec.calc_API_tension(Yp, outer_diameter, inner_diameter) / self.DF_tension /1000
+        self.API_burst_pressure = wec.calc_API_burst(Yp, outer_diameter, inner_diameter) * wec.calc_pipe_temperature_derating(temperature) / self.DF_burst
+        self.API_tension = wec.calc_API_tension(Yp, outer_diameter, inner_diameter) * wec.calc_pipe_temperature_derating(temperature)  / self.DF_tension /1000
 
 class CaTStressAnalysisResults():
     def __init__(self, load_name, tension, pressure):
