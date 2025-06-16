@@ -1,5 +1,5 @@
-# VonMisesCalc
-Von Mises envelope calculator for OCTG
+# API & Von Mises Calculations
+API and Von Mises envelope calculator for OCTG
 
 This is a simple calculator for determining the Von Mises stress envelope for OCTG products. This incorporates Von Mises ellipsis with corrections for burst under tension, along with API calculations for burst, collapse, and tension. Temperature derating and wall thickness/eccentricity are included. It is also possible to plot your load data against the curves.
 
